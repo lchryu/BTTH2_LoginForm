@@ -9,7 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import models.User;
+import com.example.btth2.models.User;
+import com.example.btth2.models.UserRepo;
 
 public class MainActivity extends AppCompatActivity {
     private Button btnLogin, btnSignup, btnLoginForm;
@@ -36,18 +37,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btnLoginForm.setOnClickListener(v->login());
+        btnLoginForm.setOnClickListener(v -> login());
     }
 
     private void login() {
         String username = emailEdt.getText().toString();
         String password = passwordEdt.getText().toString();
 
-        for (User user : SignUpActivity.userList) {
+        for (User user : UserRepo.userList) {
             if (user.getUserName().equals(username) && user.getPassword().equals(password)) {
                 // Đăng nhập thành công
                 Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-                return;
+                // Mở activity mới
+                Intent intent = new Intent(MainActivity.this, test.class);
+                startActivity(intent);
+
+                // Kết thúc activity hiện tại
+                finish();
+//                return;
             }
         }
 

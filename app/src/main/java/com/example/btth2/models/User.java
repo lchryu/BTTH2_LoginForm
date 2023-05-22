@@ -1,4 +1,4 @@
-package models;
+package com.example.btth2.models;
 
 public class User {
     private String userName;

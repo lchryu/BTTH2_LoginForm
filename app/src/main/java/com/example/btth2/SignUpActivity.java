@@ -11,14 +11,14 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import models.User;
+import com.example.btth2.models.User;
+import com.example.btth2.models.UserRepo;
 
 public class SignUpActivity extends AppCompatActivity {
     private Button btnLogin, btnSignup, btnSignupForm;
 
     private EditText emailEdt, passwordEdt, confirmPasswordEdt;
 
-    static public ArrayList<User> userList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,7 @@ public class SignUpActivity extends AppCompatActivity {
             String username = emailEdt.getText().toString();
             String password = passwordEdt.getText().toString();
             User user = new User(username, password);
-            userList.add(user);
+            UserRepo.userList.add(user);
             Toast.makeText(this, "SignUp success", Toast.LENGTH_SHORT).show();
         } else {
             // Mật khẩu không khớp hoặc email không hợp lệ
