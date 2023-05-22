@@ -38,6 +38,8 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         btnLoginForm.setOnClickListener(v -> login());
+
+        populateUsernameFromBundle();
     }
 
     private void login() {
@@ -54,11 +56,20 @@ public class LoginActivity extends AppCompatActivity {
 
                 // Kết thúc activity hiện tại
                 finish();
-//                return;
             }
         }
 
         // Không tìm thấy người dùng hoặc thông tin đăng nhập không chính xác
         Toast.makeText(this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
     }
+    private void populateUsernameFromBundle() {
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            String username = bundle.getString("username");
+            if (username != null) {
+                emailEdt.setText(username);
+            }
+        }
+    }
+
 }

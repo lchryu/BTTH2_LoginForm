@@ -50,6 +50,15 @@ public class SignUpActivity extends AppCompatActivity {
             User user = new User(username, password);
             UserRepo.userList.add(user);
             Toast.makeText(this, "SignUp success", Toast.LENGTH_SHORT).show();
+
+            // Create an intent and pass the username through a Bundle
+            Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("username", username);
+            intent.putExtras(bundle);
+
+            // Switch to the Login Activity
+            startActivity(intent);
         } else {
             // Mật khẩu không khớp hoặc email không hợp lệ
             Toast.makeText(this, "Invalid credentials", Toast.LENGTH_SHORT).show();
