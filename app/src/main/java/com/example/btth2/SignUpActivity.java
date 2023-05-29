@@ -43,7 +43,7 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void SignUp() {
-        if (passwordEdt.getText().toString().equals(confirmPasswordEdt.getText().toString()) && emailEdt.getText().length() > 3) {
+        if (passwordEdt.getText().toString().equals(confirmPasswordEdt.getText().toString()) && emailEdt.getText().length() > 0) {
             // Đăng ký thành công
             String username = emailEdt.getText().toString();
             String password = passwordEdt.getText().toString();

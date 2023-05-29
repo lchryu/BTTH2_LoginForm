@@ -42,25 +42,32 @@ public class LoginActivity extends AppCompatActivity {
         populateUsernameFromBundle();
     }
 
+//    private void login() {
+//        String username = emailEdt.getText().toString();
+//        String password = passwordEdt.getText().toString();
+//
+//        for (User user : UserRepo.userList) {
+//            if (user.getUserName().equals(username) && user.getPassword().equals(password)) {
+//                // Đăng nhập thành công
+//                Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+//                // Mở activity mới
+//                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//                startActivity(intent);
+//
+//                // Kết thúc activity hiện tại
+//                finish();
+//            }
+//        }
+//
+//        // Không tìm thấy người dùng hoặc thông tin đăng nhập không chính xác
+//        Toast.makeText(this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
+//    }
     private void login() {
-        String username = emailEdt.getText().toString();
-        String password = passwordEdt.getText().toString();
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
 
-        for (User user : UserRepo.userList) {
-            if (user.getUserName().equals(username) && user.getPassword().equals(password)) {
-                // Đăng nhập thành công
-                Toast.makeText(this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-                // Mở activity mới
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-
-                // Kết thúc activity hiện tại
-                finish();
-            }
-        }
-
-        // Không tìm thấy người dùng hoặc thông tin đăng nhập không chính xác
-        Toast.makeText(this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
+        // Kết thúc activity hiện tại
+        finish();
     }
     private void populateUsernameFromBundle() {
         Bundle bundle = getIntent().getExtras();
